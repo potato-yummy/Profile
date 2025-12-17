@@ -320,7 +320,21 @@ body {
   gap: 1rem;
   align-items: center;
   cursor: pointer;
+  position: relative;
   transition: color 0.3s, transform 0.3s;
+}
+
+.phone-number::after,
+.email::after,
+.github::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: #865428ff;
+  transition: width 0.3s;
 }
 
 .phone-number img,
@@ -348,6 +362,18 @@ body {
 
 .github:hover {
   transform: translateY(-3px);
+}
+
+.phone-number:hover::after {
+  width: 22%;
+}
+
+.email:hover::after {
+  width: 32%;
+}
+
+.github:hover::after {
+  width: 43%;
 }
 
 @keyframes fillhtml {
