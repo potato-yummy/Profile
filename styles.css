@@ -57,6 +57,8 @@ body {
   border-bottom: 1px solid #ebe4d6;
   padding: 0.625rem 0;
   font-size: 1.5rem;
+  color: #fdf6e8ff;
+  font-weight: 600;
 }
 
 .name {
@@ -110,12 +112,18 @@ body {
   font-size: 1.5rem;
 }
 
+.accent {
+  color: #c25a3a;
+}
+
 .strength-tag,
 .skills-tag,
 .contact-tag {
-  border-bottom: 1px solid #af9571;
+  border-bottom: 1px solid #c25a3a;
   padding: 0.625rem 0;
   font-size: 1.5rem;
+  color: #c25a3a;
+  font-weight: 600;
 }
 
 .profile-strength-container {
@@ -129,6 +137,67 @@ body {
   display: flex;
   flex-direction: column;
   width: 320px;
+}
+
+.profile-strength-container input[type="radio"] {
+  display: none;
+}
+
+.profile-strength-container .tab {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid #af9571;
+}
+
+.profile-strength-container .tab label {
+  padding: 0.625rem 0;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #af9571;
+  border-right: 1px solid #af9571;
+  background-color: #ebe4d6;
+}
+
+.profile-strength-container .tab label:last-child {
+  border-right: none;
+}
+
+#tab1:checked ~ .tab label [for="tab1"],
+#tab1:checked ~ .tab label [for="tab2"],
+#tab1:checked ~ .tab label [for="tab3"],
+#tab1:checked ~ .tab label [for="tab4"] {
+  background-color: #af9571;
+  color: #ebe4d6;
+  font-weight: 600;
+}
+
+.strength-type {
+  border: 1px solid #af9571;
+  padding: 1rem;
+  background-color: #ebe4d6;
+}
+
+.strength-type section {
+  display: none;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+#tab1:checked ~ .strength-type .adaptation {
+  display: flex;
+}
+
+#tab2:checked ~ .strength-type .deliberation {
+  display: flex;
+}
+
+#tab3:checked ~ .strength-type .unity {
+  display: flex;
+}
+
+#tab4:checked ~ .strength-type .fairness {
+  display: flex;
 }
 
 .profile-contact-container {
@@ -168,17 +237,43 @@ body {
 .fill {
   height: 100%;
   background-color: #af9571;
+  width: 0;
 }
 
-.fill-html,
+.fill-html {
+  animation: fillhtml 1s ease-out forwards;
+}
+
 .fill-css {
-  width: 60%;
+  animation: fillcss 1s ease-out forwards;
 }
 
-.fill-js,
-.fill-react,
+.fill-js {
+  animation: filljs 1s ease-out forwards;
+}
+
+.fill-react {
+  animation: fillreact 1s ease-out forwards;
+}
+
 .fill-vue {
-  width: 5%;
+  animation: fillvue 1s ease-out forwards;
+}
+
+.fill-html {
+  animation-delay: 0.1s;
+}
+.fill-css {
+  animation-delay: 0.2s;
+}
+.fill-js {
+  animation-delay: 0.3s;
+}
+.fill-react {
+  animation-delay: 0.4s;
+}
+.fill-vue {
+  animation-delay: 0.5s;
 }
 
 .phone-number,
@@ -187,6 +282,8 @@ body {
   display: flex;
   gap: 1rem;
   align-items: center;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s;
 }
 
 .phone-number img,
@@ -202,6 +299,66 @@ body {
   flex-direction: column;
   gap: 0.625rem;
   justify-content: center;
+}
+
+.phone-number:hover {
+  color: #6fb98f;
+  transform: translateY(-3px);
+}
+
+.email:hover {
+  color: #6fa8dc;
+  transform: translateY(-3px);
+}
+
+.github:hover {
+  color: #8b7cc6;
+  transform: translateY(-3px);
+}
+
+@keyframes fillhtml {
+  from {
+    width: 0;
+  }
+  to {
+    width: 60%;
+  }
+}
+
+@keyframes fillcss {
+  from {
+    width: 0;
+  }
+  to {
+    width: 60%;
+  }
+}
+
+@keyframes filljs {
+  from {
+    width: 0;
+  }
+  to {
+    width: 5%;
+  }
+}
+
+@keyframes fillreact {
+  from {
+    width: 0;
+  }
+  to {
+    width: 5%;
+  }
+}
+
+@keyframes fillvue {
+  from {
+    width: 0;
+  }
+  to {
+    width: 5%;
+  }
 }
 
 @media (max-width: 1279px) {
