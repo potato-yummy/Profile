@@ -70,3 +70,8 @@ button {
   background-color: transparent;
   cursor: pointer;
 }
+
+summary {
+  list-style: none;
+  cursor: pointer;
+}

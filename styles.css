@@ -37,6 +37,42 @@ body {
   height: 200px;
 }
 
+.profile-name-container .name-tag,
+.profile-about-me-container .about-me-tag,
+.profile-education-container .education-tag,
+.profile-strength-container .strength-tag,
+.profile-skills-container .skills-tag,
+.profile-contact-container .contact-tag {
+  position: relative;
+  padding-left: 32px;
+}
+
+.profile-name-container .name-tag::before,
+.profile-about-me-container .about-me-tag::before,
+.profile-education-container .education-tag::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  transform: translateY(-50%);
+  background: url(./img/bright-blossom.png) no-repeat center / contain;
+}
+
+.profile-strength-container .strength-tag::before,
+.profile-skills-container .skills-tag::before,
+.profile-contact-container .contact-tag::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  transform: translateY(-50%);
+  background: url(./img/dark-blossom.png) no-repeat center / contain;
+}
+
 .profile-name-container {
   color: #ebe4d6;
   display: flex;
@@ -113,16 +149,16 @@ body {
 }
 
 .accent {
-  color: #c25a3a;
+  color: #bf7738ff;
 }
 
 .strength-tag,
 .skills-tag,
 .contact-tag {
-  border-bottom: 1px solid #c25a3a;
+  border-bottom: 1px solid #bf7738ff;
   padding: 0.625rem 0;
   font-size: 1.5rem;
-  color: #c25a3a;
+  color: #bf7738ff;
   font-weight: 600;
 }
 
@@ -137,6 +173,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 320px;
+  cursor: pointer;
 }
 
 .profile-strength-container input[type="radio"] {
@@ -146,34 +183,29 @@ body {
 .profile-strength-container .tab {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  border: 1px solid #af9571;
+  gap: 10px;
 }
 
 .profile-strength-container .tab label {
-  padding: 0.625rem 0;
+  padding: 0.2rem 0;
   text-align: center;
   font-size: 1rem;
   cursor: pointer;
   color: #af9571;
-  border-right: 1px solid #af9571;
-  background-color: #ebe4d6;
+  border: 1px solid #af9571;
+  border-radius: 30px;
 }
 
-.profile-strength-container .tab label:last-child {
-  border-right: none;
-}
-
-#tab1:checked ~ .tab label [for="tab1"],
-#tab1:checked ~ .tab label [for="tab2"],
-#tab1:checked ~ .tab label [for="tab3"],
-#tab1:checked ~ .tab label [for="tab4"] {
+#tab1:checked ~ .tab label[for="tab1"],
+#tab2:checked ~ .tab label[for="tab2"],
+#tab3:checked ~ .tab label[for="tab3"],
+#tab4:checked ~ .tab label[for="tab4"] {
   background-color: #af9571;
   color: #ebe4d6;
   font-weight: 600;
 }
 
 .strength-type {
-  border: 1px solid #af9571;
   padding: 1rem;
   background-color: #ebe4d6;
 }
@@ -238,6 +270,11 @@ body {
   height: 100%;
   background-color: #af9571;
   width: 0;
+  transition: background-color 0.3s;
+}
+
+.profile-skills-container:hover .fill {
+  background-color: #865428ff;
 }
 
 .fill-html {
@@ -302,17 +339,14 @@ body {
 }
 
 .phone-number:hover {
-  color: #6fb98f;
   transform: translateY(-3px);
 }
 
 .email:hover {
-  color: #6fa8dc;
   transform: translateY(-3px);
 }
 
 .github:hover {
-  color: #8b7cc6;
   transform: translateY(-3px);
 }
 
