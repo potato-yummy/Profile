@@ -381,15 +381,15 @@ body {
 }
 
 .phone-number:hover::after {
-  width: 22%;
+  width: 150px;
 }
 
 .email:hover::after {
-  width: 32%;
+  width: 220px;
 }
 
 .github:hover::after {
-  width: 43%;
+  width: 290px;
 }
 
 @keyframes fillhtml {
